@@ -1,2 +1,2 @@
 # alita-kprt-api
- REST API untuk Alita KPRT
+ REST FULL API untuk Alita KPRT
