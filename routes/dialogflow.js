@@ -5,7 +5,8 @@ const uuid = require('uuid');
 
 /* GET dialogflow listing. */
 router.post('/:botId', async function(req, res, next) {
-console.log('=========start=========');	
+console.log('');	
+console.log('========= [START Whatsapp >>> Dialogflow] =========');	
 	console.log('SessionId: '+req.body.sender.id);
 	try {
 	dfData = await runSample(req.params.botId, req.body.sender.id, req.body.body.toLowerCase());
@@ -26,8 +27,7 @@ console.log('=========start=========');
     })
   }
 
-console.log('==========end==========');	
-console.log('');	
+console.log('========= [END Whatsapp >>> Dialogflow] ==========');	
 	
 });
 
@@ -59,11 +59,12 @@ async function runSample(projectId, sessionId, inputQuery) {
   const responses = await sessionClient.detectIntent(request);
   console.log('Detected intent');
   const result = responses[0].queryResult;
-  console.log(`  Query: ${result.queryText}`);
+  console.log(`  Text: ${result.queryText}`);
   console.log(`  Response: ${result.fulfillmentText}`);
   
   if (result.intent) {
     console.log(`  Intent: ${result.intent.displayName}`);
+    console.log(`  Action: ${result.action}`);
 	
 	var jsonData = { 
 					dfQuery: result.queryText, 
@@ -77,5 +78,6 @@ async function runSample(projectId, sessionId, inputQuery) {
     console.log(`  No intent matched.`);
   }
 }
+
 
 module.exports = router;
