@@ -7,6 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var dialogflowRouter = require('./routes/dialogflow');
 var bot_apiRouter = require('./routes/bot_api');
+var bot_webhookRouter = require('./routes/bot_webhook');
 var bot_helpsRouter = require('./routes/bot_helps');
 var bot_packmealRouter = require('./routes/bot_packmeal');
 
@@ -33,6 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/dialogflow', dialogflowRouter);
+app.use('/bot_webhook', bot_webhookRouter);
 app.use('/bot_api', bot_apiRouter);
 app.use('/bot_helps', bot_helpsRouter);
 app.use('/bot_packmeal', bot_packmealRouter);
