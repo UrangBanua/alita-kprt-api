@@ -1,9 +1,9 @@
 {
   "development": {
     "username": "autobot_wa",
-    "password": "autobot_P@ssw0rd",
+    "password": "xxxxx",
     "database": "DB_AUTOBOT",
-    "host": "10.13.17.58",
+    "host": "10.13.xx.xx",
     "dialect": "mssql",
     "logging": true,
     "operatorsAliases": false
